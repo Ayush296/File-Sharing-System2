@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File sharing system CA-2 | Download</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="bg-shapes">
+    <div class="shape"></div>
+    <div class="shape"></div>
+    <div class="shape"></div>
+  </div>
+  <div class="top-bar">
+    <a href="/"><img src="logo.png" alt="Logo" class="site-logo"></a>
+  </div>
+  <div class="container">
+    <div class="glass-panel" id="mainPanel">
+      <div class="header">
+        <h1><a href="/">File sharing system CA-2</a></h1>
+        <p>Download a securely shared file</p>
+      </div>
+
+      <div id="loadingState" style="text-align: center; padding: 2rem;">
+        <div class="loader" style="display: inline-block; width: 30px; height: 30px; border-width: 4px; border-top-color: var(--accent-color);"></div>
+      </div>
+
+      <div id="errorState" class="hidden" style="text-align: center; color: var(--danger); padding: 2rem;">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: 1rem;">
+          <circle cx="12" cy="12" r="10"></circle>
+          <line x1="12" y1="8" x2="12" y2="12"></line>
+          <line x1="12" y1="16" x2="12.01" y2="16"></line>
+        </svg>
+        <h2 style="font-size: 1.2rem; margin-bottom: 0.5rem;">File Not Found</h2>
+        <p style="font-size: 0.9rem; color: var(--text-secondary);" id="errorMessageText">The link might be invalid or the file has been deleted.</p>
+      </div>
+
+      <div id="downloadState" class="hidden">
+        <div class="file-info">
+          <div style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.25rem;">Filename</div>
+          <div class="file-name" id="displayFileName">loading...</div>
+        </div>
+
+        <form id="downloadForm">
+          <div class="form-group hidden" id="pinGroup">
+            <label for="downloadPin">Enter PIN to Unlock</label>
+            <input type="password" id="downloadPin" class="input-field" placeholder="Secure PIN" autocomplete="off">
+            <div id="pinError" class="error-message">Incorrect PIN. Please try again.</div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" id="downloadBtn">
+            <span class="btn-text">Download File</span>
+            <div class="loader" id="downloadLoader"></div>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
